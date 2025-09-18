@@ -17,7 +17,7 @@ export function BackgroundToggle() {
     } else {
       document.documentElement.setAttribute("data-background", backgroundStyle);
     }
-  }, []);
+  }, [backgroundStyle]);
 
   const handleStyleChange = (style: BackgroundStyle) => {
     setBackgroundStyle(style);

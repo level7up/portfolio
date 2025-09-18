@@ -59,20 +59,6 @@ export function ExperienceSection() {
     }
   };
 
-  const dotVariants: Variants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20,
-        delay: 0.2
-      }
-    }
-  };
-
   return (
     <section id="experience" className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">

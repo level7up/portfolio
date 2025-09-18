@@ -69,7 +69,7 @@ export function AboutSection() {
                 </p>
                 <p>
                   I have a proven ability to collaborate effectively with cross-functional teams to deliver
-                  high-quality features on time. I'm eager to contribute to a fast-paced environment and
+                  high-quality features on time. I&apos;m eager to contribute to a fast-paced environment and
                   continuously learn new technologies.
                 </p>
               </div>

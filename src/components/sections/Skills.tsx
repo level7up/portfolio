@@ -50,11 +50,6 @@ export function SkillsSection() {
     }
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -188,7 +183,7 @@ export function SkillsSection() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-6 md:mb-0">
                 <h3 className="text-2xl font-bold mb-2">Looking for a skilled backend developer?</h3>
-                <p className="text-white/80">Let's collaborate on your next project!</p>
+                <p className="text-white/80">Let&apos;s collaborate on your next project!</p>
               </div>
               <motion.a
                 href="#contact"

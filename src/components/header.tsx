@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
-import Link from "next/link";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 export function Header() {

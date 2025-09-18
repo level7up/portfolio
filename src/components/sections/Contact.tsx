@@ -75,7 +75,7 @@ export function ContactSection() {
             >
               <h3 className="text-2xl font-semibold">Contact Information</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+                Feel free to reach out if you&apos;re looking for a developer, have a question, or just want to connect.
               </p>
 
               <div className="space-y-4">
@@ -215,7 +215,7 @@ export function ContactSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 p-4 rounded-md mb-4"
                   >
-                    <p>Thank you for your message! I'll get back to you soon.</p>
+                    <p>Thank you for your message! I&apos;ll get back to you soon.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">

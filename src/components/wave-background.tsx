@@ -17,7 +17,7 @@ export function WaveBackground({ isActive }: { isActive: boolean }) {
     let animationFrameId: number;
     let width: number;
     let height: number;
-    let frequency = 0.005;
+    const frequency = 0.005;
 
     // Get wave colors from CSS variables
     const getWaveColor = (variable: string): string => {
@@ -55,7 +55,7 @@ export function WaveBackground({ isActive }: { isActive: boolean }) {
       canvas.height = height;
     };
 
-    const drawWave = (wave: typeof waves[0], time: number) => {
+    const drawWave = (wave: typeof waves[0]) => {
       ctx.beginPath();
 
       // Update the wave offset based on time and speed
@@ -82,13 +82,13 @@ export function WaveBackground({ isActive }: { isActive: boolean }) {
       ctx.fill();
     };
 
-    const render = (time: number) => {
+    const render = () => {
       if (!isActive) return;
 
       ctx.clearRect(0, 0, width, height);
 
       // Draw each wave
-      waves.forEach(wave => drawWave(wave, time));
+      waves.forEach(wave => drawWave(wave));
 
       animationFrameId = requestAnimationFrame(render);
     };

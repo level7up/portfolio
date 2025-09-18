@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

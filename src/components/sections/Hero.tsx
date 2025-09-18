@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 export function HeroSection() {
@@ -27,7 +26,7 @@ export function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold"
           >
-            Hi, I'm{" "}
+            Hi, I&apos;m{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
               AbdulAlim
             </span>
