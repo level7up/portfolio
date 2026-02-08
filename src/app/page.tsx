@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <AnimatedBackground />
       <CustomCursor />
-      <BackgroundToggle />
+      {/* <BackgroundToggle /> */}
       <Header />
       <HeroSection />
       <AboutSection />
