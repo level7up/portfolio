@@ -3,141 +3,136 @@
 import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { SectionHead } from "@/components/section-head";
+import { Stamp } from "@/components/stamp";
+
+const experiences = [
+  {
+    entry: "Entry 01",
+    title: "Backend Developer",
+    company: "HashStudio Solutions",
+    period: "Sep 2021 – Present",
+    place: "Cairo, Egypt",
+    ink: "purple" as const,
+    rotate: -5,
+    stampLines: ["HashStudio", "Sep 21 – Present"],
+    bullets: [
+      "Build and maintain Gdawel, a multi-tenant ERP serving 150+ businesses in Saudi Arabia with tenant-isolated databases.",
+      "Implemented Saudi ZATCA e-invoicing and MyFatoorah payments, plus RabbitMQ and Redis queue pipelines for reliable integrations.",
+      "Published reusable Composer packages for AI, WhatsApp Business, ZATCA, CMS and e-commerce, reused across client projects.",
+      "Run Docker-based environments and resolve incidents on Linux production servers.",
+    ],
+  },
+  {
+    entry: "Entry 02",
+    title: "Co-founder & CEO",
+    company: "Nuvexa Digital",
+    period: "Present",
+    place: "Cairo, Egypt",
+    ink: "burgundy" as const,
+    rotate: 4,
+    stampLines: ["Nuvexa Digital", "Co-founder · CEO"],
+    bullets: [
+      "Co-founded Nuvexa Digital and lead it as CEO, delivering cloud and AI-enabled software solutions for businesses.",
+    ],
+  },
+  {
+    entry: "Entry 03",
+    title: "Backend Developer",
+    company: "Falcon Portal",
+    period: "Oct 2022 – Present",
+    place: "Remote · Part-time",
+    ink: "green" as const,
+    rotate: -4,
+    stampLines: ["Falcon Portal", "Oct 22 – Present"],
+    bullets: [
+      "Design and implement the RESTful APIs behind the portal's core features and its frontend-backend integration.",
+      "Tune MySQL and PostgreSQL queries on high-traffic endpoints to improve response times.",
+    ],
+  },
+];
 
 export function ExperienceSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const experiences = [
-    {
-      title: "Full Stack Developer",
-      company: "Hashstudio Solutions",
-      period: "Sep 2021 - Present",
-      description: "Developed and maintained robust full stack systems using PHP with the Laravel framework, ensuring high performance and scalability of web applications."
-    },
-    {
-      title: "Backend Developer",
-      company: "Falcon Portal",
-      period: "Oct 2022 - Present",
-      description: "Designed and implemented RESTful APIs to facilitate seamless communication between front-end and back-end systems, enabling efficient data exchange and manipulation."
-    }
-  ];
-
-  // Scroll animation variants
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+  const container: Variants = {
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+  const item: Variants = {
+    hidden: { opacity: 1, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const lineVariants: Variants = {
-    hidden: { scaleY: 0, originY: 0 },
-    visible: {
-      scaleY: 1,
-      transition: {
-        duration: 1,
-        ease: "easeInOut"
-      }
-    }
+      transition: { duration: 0.55, ease: "easeOut" },
+    },
   };
 
   return (
-    <section id="experience" className="py-20 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="experience" className="py-20 relative">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          initial={{ opacity: 1 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="space-y-12"
+          className="space-y-10"
         >
-          <div className="text-center space-y-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold"
-            >
-              Work Experience
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="h-1 w-20 bg-blue-500 mx-auto"
-            />
-          </div>
+          <SectionHead title="Work Experience" page="Page 03 · Entries" />
 
-          <div className="relative pt-8">
-            {/* Timeline line */}
-            <motion.div
-              className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-8 h-[calc(100%-2rem)] w-0.5 bg-blue-200 dark:bg-blue-800"
-              variants={lineVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-            />
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="space-y-8"
+          >
+            {experiences.map((exp) => (
+              <motion.article
+                key={exp.entry}
+                variants={item}
+                className="relative bg-[#fbf8f1] border-2 border-[#1c1c18]"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2 bg-[#efe7d6] border-b-2 border-[#1c1c18] px-5 py-2.5">
+                  <span className="machine-line uppercase text-[0.6rem] font-bold text-[#6b1f2e]">
+                    {exp.entry} · {exp.place}
+                  </span>
+                  <span className="machine-line uppercase text-[0.6rem] font-bold text-[#5c5850]">
+                    {exp.period}
+                  </span>
+                </div>
 
-            {/* Experience items */}
-            <motion.div
-              className="space-y-16 md:space-y-24"
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-            >
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`relative flex flex-col md:flex-row ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  {/* Timeline dot */}
-                  <div
-                    className="absolute left-0 md:left-1/2 top-0 transform -translate-x-1/2 w-5 h-5 rounded-full bg-blue-500 border-4 border-white dark:border-gray-900 z-10 shadow-md"
-                  />
-
-                  {/* Content */}
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"} pt-6 md:pt-0`}>
-                    <motion.div
-                      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <h3 className="text-xl font-semibold">{exp.title}</h3>
-                      <div className="flex items-center space-x-2 mt-1 mb-3">
-                        <span className="text-blue-500">{exp.company}</span>
-                        <span className="text-gray-400 dark:text-gray-500">•</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">{exp.period}</span>
-                      </div>
-                      <p className="text-gray-600 dark:text-gray-300">{exp.description}</p>
-                    </motion.div>
+                <div className="p-5 md:p-7 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-start">
+                  <div>
+                    <h3 className="engraved font-bold text-lg md:text-xl">
+                      {exp.title}
+                    </h3>
+                    <p className="machine-line uppercase text-[0.7rem] font-bold text-[#6b1f2e] mt-1.5">
+                      {exp.company}
+                    </p>
+                    <ul className="mt-4 space-y-2.5 list-disc pl-5 text-[#5c5850] leading-relaxed max-w-[65ch] marker:text-[#6b1f2e]">
+                      {exp.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+
+                  <div className="hidden md:block pt-2">
+                    <Stamp
+                      lines={exp.stampLines}
+                      ink={exp.ink}
+                      rotate={exp.rotate}
+                      variant="rect"
+                    />
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

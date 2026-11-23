@@ -1,0 +1,77 @@
+# AbdulAlim Mohamed AbdulAlim
+
+**Senior Full-Stack Engineer · Laravel · Multi-Tenant SaaS · Integrations**
+
+Cairo, Egypt · +20 100 287 4060 · [abdoleemos200@gmail.com](mailto:abdoleemos200@gmail.com) · [github.com/level7up](https://github.com/level7up) · [Portfolio](https://portfolio-pearl-beta-91.vercel.app)
+
+---
+
+## Professional Summary
+
+Senior Full-Stack Engineer with 5+ years of experience shipping and running production software for clients in Egypt, the UAE, Saudi Arabia, Qatar and Germany. Specialist in PHP/Laravel backends: multi-tenant and multi-database architecture, REST APIs, payment and government e-invoicing integrations, and message-driven processing. Core engineer on Gdawel, a multi-tenant ERP serving 150+ businesses in Saudi Arabia, working across the full lifecycle from technical design to deployment and production support, with hands-on Vue.js, Inertia.js and Livewire frontend work. Author of seven open-source Laravel and Node.js packages.
+
+## Technical Skills
+
+| Area | Skills |
+| --- | --- |
+| **Backend & APIs** | PHP, Laravel, Node.js, RESTful API design, OAuth 2.0, Laravel Passport, Composer package development |
+| **Frontend** | Vue.js 3, Inertia.js, Livewire, Next.js, JavaScript, HTML, CSS, Tailwind CSS, Bootstrap |
+| **Architecture** | Multi-tenancy, multi-database systems, modular design, OOP, SOLID, MVC |
+| **Data & Messaging** | MySQL, PostgreSQL, MongoDB, Redis, RabbitMQ, Laravel queues, asynchronous processing |
+| **DevOps** | Docker, Linux, Bash, Git, deployment pipelines, server administration, production troubleshooting |
+| **Integrations** | Saudi ZATCA e-invoicing, MyFatoorah and other payment gateways, WhatsApp Business API, OTO shipping |
+| **AI & LLMs** | Anthropic Claude API, OpenAI API, Google Gemini API, OpenRouter, MCP servers, Ollama, LM Studio, vector search (pgvector, Qdrant, Pinecone) |
+| **AI Dev Tools** | Claude Code, OpenCode, GitHub Copilot, Cursor, Windsurf, Codex CLI, specification-driven development |
+
+## Professional Experience
+
+### Backend Developer | HashStudio Solutions
+*Full-time · Sep 2021 – Present*
+
+- Build and maintain **Gdawel**, a multi-tenant ERP serving 150+ businesses in Saudi Arabia, with centralized identity management and tenant-isolated databases.
+- Shape backend architecture, API contracts and database design for business-critical ERP workflows, and own their production support.
+- Implemented Saudi **ZATCA e-invoicing** and financial workflows, plus **MyFatoorah** payment processing covering terminal transactions and refunds.
+- Designed message-driven pipelines with **RabbitMQ, Redis and Laravel queues**, using idempotent processing and retry/recovery patterns to keep integrations reliable.
+- Delivered production Laravel applications in real estate, HR, e-commerce, healthcare, media and education for clients in the UAE, Saudi Arabia, Qatar and Germany.
+- Build AI integrations for Laravel and Node.js: an **OpenRouter** client for multi-model LLM access, an **MCP server** linking Trello to AI coding tools, and local-model workflows with **Ollama**.
+- Set up Docker-based development and deployment environments and resolve incidents on Linux production servers.
+- Published reusable Composer packages for AI, WhatsApp Business, ZATCA, CMS, e-commerce and admin dashboards, reused across client projects.
+
+### Backend Developer | Falcon Portal
+*Part-time · Oct 2022 – Present*
+
+- Design and implement the RESTful APIs behind the portal's core features and its frontend–backend integration.
+- Tune MySQL and PostgreSQL queries on high-traffic endpoints to improve response times.
+
+## Selected Projects
+
+| Project | Domain | Highlights |
+| --- | --- | --- |
+| [**Gdawel ERP**](https://gdawel.app) | Enterprise ERP · Saudi Arabia | Multi-tenant platform for 150+ businesses; centralized identity, tenant-isolated databases, ZATCA, payments and async processing |
+| **Gdawel E-commerce (Gstore)** | Multi-vendor e-commerce | Storefront integrated with Gdawel ERP to sync commerce operations and ERP workflows |
+| [**Pasma**](https://pasma.hashstudio.dev) | HR management | Employee management system on a multi-database Laravel architecture |
+| [**Claimizer**](https://claimizer.com) | Real estate · UAE | Backend services, REST APIs and business workflows for the UAE market |
+| **Wolf Drama** | Media & streaming | API-first backend with secure video delivery, engagement features and monetization |
+| **Etamen** | Telehealth | Platform connecting patients with psychiatrists |
+| [**EYE Tracker**](https://eyetracker.hashstudio.dev) | Healthcare | Eye-clinic management and patient records |
+| **EasyCut** | Bookings · Germany | PHP backend for a barber-shop reservation app |
+| [**Khurdah**](https://khurdahapp.com) | Auctions | Scrap auction management web app |
+| [**Darabny**](https://darabny.com) | Fitness | Exercise and meal-plan management for trainers and trainees |
+
+## Open-Source Work
+
+- **zatca-laravel** — Saudi ZATCA e-invoicing integration for Laravel.
+- [**openrouter-client**](https://packagist.org/packages/level7up/openrouter-client) — Laravel client for OpenRouter AI models.
+- **whatsapp-bot** — WhatsApp Business API integration for Laravel.
+- [**trello-mcp**](https://github.com/level7up/trello-mcp) — Node.js MCP server connecting Trello to AI coding tools.
+- **Dashboard Metronic** — Admin dashboard package with roles and permissions.
+- **CMS Package** — Reusable content management module for Laravel projects.
+- **E-commerce Package** — Products, categories and order management components.
+
+## Education
+
+**B.Sc. Computer Science** — The High Institute of Computer Science and Information Systems, Culture & Science City · 2015 – 2019
+
+## Languages
+
+Arabic (native) · English (advanced) · German (beginner)

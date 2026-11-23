@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AbdulAlim Mohamed | Backend Developer",
-  description: "Portfolio of AbdulAlim Mohamed, Backend Developer with expertise in PHP, Laravel, and JavaScript.",
+  title: "AbdulAlim Mohamed | Senior Full-Stack Engineer",
+  description:
+    "Portfolio of AbdulAlim Mohamed, Senior Full-Stack Engineer in Cairo — multi-tenant Laravel systems, 150+ businesses served in Saudi Arabia.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider defaultTheme="system">
+        <ThemeProvider defaultTheme="light">
           {children}
         </ThemeProvider>
       </body>

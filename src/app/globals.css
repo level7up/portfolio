@@ -3,104 +3,88 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --border: #e5e7eb;
-  --wave-color-1: rgba(59, 130, 246, 0.2);
-  --wave-color-2: rgba(99, 102, 241, 0.2);
-  --wave-color-3: rgba(139, 92, 246, 0.15);
-}
+  --paper: #f4efe4;
+  --paper-deep: #efe7d6;
+  --paper-edge: #e6dcc8;
+  --ink: #1c1c18;
+  --ink-soft: #5c5850;
+  --burgundy: #6b1f2e;
+  --burgundy-deep: #521522;
+  --cream: #f7f2e7;
+  --stamp-purple: #4a3f8f;
+  --stamp-green: #2f6f4e;
+  --stamp-red: #b3323c;
+  --rule: rgba(28, 28, 24, 0.14);
+  --rule-soft: rgba(28, 28, 24, 0.07);
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
-  --muted: #1f2937;
-  --muted-foreground: #9ca3af;
-  --card: #111827;
-  --card-foreground: #ededed;
-  --border: #374151;
-  --wave-color-1: rgba(59, 130, 246, 0.15);
-  --wave-color-2: rgba(99, 102, 241, 0.15);
-  --wave-color-3: rgba(139, 92, 246, 0.1);
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --accent: var(--burgundy);
+  --accent-foreground: var(--cream);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --card: #fbf8f1;
+  --card-foreground: var(--ink);
+  --border: var(--rule);
 }
 
 @layer base {
   html {
-    @apply transition-colors duration-300;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    background-color: var(--paper);
+    color: var(--ink);
     font-family: var(--font-geist-sans);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80' viewBox='0 0 160 80'%3E%3Cg fill='none' stroke='rgba(107,31,46,0.055)' stroke-width='0.75'%3E%3Cpath d='M0 40 Q20 20 40 40 T80 40 T120 40 T160 40'/%3E%3Cpath d='M0 40 Q20 60 40 40 T80 40 T120 40 T160 40'/%3E%3Cpath d='M0 18 Q20 -2 40 18 T80 18 T120 18 T160 18'/%3E%3Cpath d='M0 62 Q20 82 40 62 T80 62 T120 62 T160 62'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
-  /* Custom cursor styles */
-  .cursor-none {
-    cursor: none !important;
+  ::selection {
+    background: var(--burgundy);
+    color: var(--cream);
   }
 
-  .cursor-none * {
-    cursor: none !important;
+  :focus-visible {
+    outline: 2px solid var(--burgundy);
+    outline-offset: 2px;
   }
 
-  /* Make sure form elements still have their native cursor */
-  .cursor-none input,
-  .cursor-none textarea,
-  .cursor-none select,
-  .cursor-none [type="button"],
-  .cursor-none [type="reset"],
-  .cursor-none [type="submit"],
-  .cursor-none button,
-  .cursor-none label {
-    cursor: auto !important;
-  }
-
-  /* Make sure resizing handles still have their native cursor */
-  .cursor-none [resize],
-  .cursor-none [resize="both"],
-  .cursor-none [resize="horizontal"],
-  .cursor-none [resize="vertical"] {
-    cursor: auto !important;
+  input,
+  textarea {
+    caret-color: var(--burgundy);
   }
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 15s ease infinite;
-  transition: opacity 0.5s ease, background-color 0.5s ease;
+/* Ruled document sheet: faint horizontal lines like passport pages */
+.sheet-rules {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    var(--rule-soft) 31px,
+    var(--rule-soft) 32px
+  );
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.engraved {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-/* Grid pattern for minimal background */
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  transition: opacity 0.5s ease;
+.machine-line {
+  font-family: var(--font-geist-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
 }
 
-.dark .bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-}
+.stamp-ink-purple { color: var(--stamp-purple); }
+.stamp-ink-green { color: var(--stamp-green); }
+.stamp-ink-red { color: var(--stamp-red); }
+.stamp-ink-burgundy { color: var(--burgundy); }
+
+.stamp-border-purple { border-color: rgba(74, 63, 143, 0.75); }
+.stamp-border-green { border-color: rgba(47, 111, 78, 0.75); }
+.stamp-border-red { border-color: rgba(179, 50, 60, 0.75); }
+.stamp-border-burgundy { border-color: rgba(107, 31, 46, 0.75); }

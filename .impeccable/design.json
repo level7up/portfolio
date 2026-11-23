@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T12:05:00Z",
+  "title": "Design System: AbdulAlim Mohamed — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "burgundy": { "role": "primary", "displayName": "Cover Burgundy", "canonical": "#6b1f2e" },
+      "stamp-purple": { "role": "secondary", "displayName": "Stamp Purple", "canonical": "#4a3f8f" },
+      "stamp-green": { "role": "secondary", "displayName": "Stamp Green", "canonical": "#2f6f4e" },
+      "stamp-red": { "role": "secondary", "displayName": "Stamp Red", "canonical": "#b3323c" },
+      "cream": { "role": "tertiary", "displayName": "Cover Cream", "canonical": "#f7f2e7" },
+      "paper": { "role": "neutral", "displayName": "Security Paper", "canonical": "#f4efe4" },
+      "paper-deep": { "role": "neutral", "displayName": "Paper Deep", "canonical": "#efe7d6" },
+      "paper-card": { "role": "neutral", "displayName": "Document Card", "canonical": "#fbf8f1" },
+      "ink": { "role": "neutral", "displayName": "Document Ink", "canonical": "#1c1c18" },
+      "ink-soft": { "role": "neutral", "displayName": "Faded Ink", "canonical": "#5c5850" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Engraved Display", "purpose": "The holder's name only, uppercase." },
+      "headline": { "displayName": "Engraved Headline", "purpose": "Section titles and card headings." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and bullets, measure ≤65ch." },
+      "label": { "displayName": "Machine Line", "purpose": "Fields, dates, stamp text — mono tabular caps." }
+    },
+    "shadows": [
+      { "name": "header-scrolled", "value": "0 3px 12px rgba(28,28,24,0.3)", "purpose": "Appears on the fixed header only once scrolled; the system's only shadow." }
+    ],
+    "motion": [
+      { "name": "stamp-settle", "value": "0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15)", "purpose": "One settle per stamp on first view: 6% overscale and 6deg extra rotation to rest; never a loop, never from invisible." },
+      { "name": "section-rise", "value": "0.5-0.6s ease-out", "purpose": "Sections rise 16-20px from a visible default; transform-only." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The burgundy plaque: engraved caps, square corners, the record's primary action.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">OPEN THE RECORD</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #6b1f2e; color: #f7f2e7; border: 2px solid #3d0f1a; padding: 14px 28px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.14em; transition: background 0.2s; } .ds-btn-primary:hover { background: #521522; } .ds-btn-primary:focus-visible { outline: 2px solid #6b1f2e; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Transparent paper button with an ink border; hover inverts to ink fill.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">CONTACT</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: #1c1c18; border: 2px solid #1c1c18; padding: 14px 28px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.14em; transition: background 0.2s, color 0.2s; } .ds-btn-secondary:hover { background: #1c1c18; color: #f4efe4; } .ds-btn-secondary:focus-visible { outline: 2px solid #6b1f2e; outline-offset: 2px; }"
+    },
+    {
+      "name": "Stamp",
+      "kind": "custom",
+      "refersTo": "stamp",
+      "description": "The system's emphasis device: double-bordered ink mark, multiply blend, no fill, misregistered inner ring.",
+      "html": "<div class=\"ds-stamp\"><div class=\"ds-stamp-inner\"><span>GDAWEL ERP</span><span class=\"ds-stamp-cap\">150+ BUSINESSES</span></div></div>",
+      "css": ".ds-stamp { position: relative; width: 208px; height: 128px; border: 2px solid rgba(74,63,143,0.75); border-radius: 50%; color: #4a3f8f; transform: rotate(-8deg); mix-blend-mode: multiply; opacity: 0.92; } .ds-stamp-inner { position: absolute; inset: 4px; border: 1px solid rgba(74,63,143,0.75); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: scale(1.015) translateX(1px); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; } .ds-stamp-cap { font-size: 0.5rem; margin-top: 4px; opacity: 0.8; }"
+    },
+    {
+      "name": "Entry Card",
+      "kind": "card",
+      "refersTo": "entry-card",
+      "description": "A booklet page holding one role: ruled header band with entry number and period, bullets below.",
+      "html": "<article class=\"ds-entry\"><div class=\"ds-entry-head\"><span>ENTRY 01 · CAIRO, EGYPT</span><span>SEP 2021 – PRESENT</span></div><div class=\"ds-entry-body\">Backend Developer — HashStudio Solutions</div></article>",
+      "css": ".ds-entry { background: #fbf8f1; border: 2px solid #1c1c18; } .ds-entry-head { display: flex; justify-content: space-between; background: #efe7d6; border-bottom: 2px solid #1c1c18; padding: 10px 20px; font-family: monospace; font-weight: 700; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #6b1f2e; } .ds-entry-body { padding: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }"
+    },
+    {
+      "name": "Endorsement Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "A skill as pure ink: stamp-ink border and mono caps, multiply blend, slight rotation, no fill.",
+      "html": "<ul><li class=\"ds-chip\">LARAVEL</li></ul>",
+      "css": ".ds-chip { display: inline-block; border: 1px solid rgba(47,111,78,0.75); color: #2f6f4e; padding: 6px 12px; font-family: monospace; font-weight: 700; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; mix-blend-mode: multiply; transform: rotate(-1deg); }"
+    },
+    {
+      "name": "Header Band",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "The burgundy cover band: cream engraved name left, mono caps links with underline active state.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-name\">ABDULALIM MOHAMED</span><nav><a class=\"ds-nav-link ds-nav-active\" href=\"#\">ABOUT</a><a class=\"ds-nav-link\" href=\"#\">PROJECTS</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; background: #6b1f2e; border-bottom: 2px solid #3d0f1a; padding: 12px 24px; } .ds-nav-name { color: #f7f2e7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.875rem; } .ds-nav-link { color: rgba(247,242,231,0.65); font-family: monospace; font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; margin-left: 24px; padding-bottom: 2px; border-bottom: 2px solid transparent; } .ds-nav-link:hover { color: #f7f2e7; } .ds-nav-active { color: #f7f2e7; border-bottom-color: #f7f2e7; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Well-Traveled Passport",
+    "overview": "The page is one document: a passport booklet for an engineer whose work crosses borders. Every section is a page of that booklet — a running head with a page number, not a card floating on a canvas. The ground is warm security paper with a faint burgundy guilloché watermark; identity lives in a burgundy cover band; and every role, market, and skill arrives as an ink stamp, pressed once, in one of four ink colors, multiplied into the paper so the ink reads as absorbed, never pasted. The system refuses the AI-default portfolio: no centered headings over rounded soft-shadow cards, no blue accent, no gradient decoration, no dark mode. Depth comes only from overlap — stamps crossing document edges — and from ink density.",
+    "keyCharacteristics": [
+      "One document, paginated: running heads like 'Page 03 · Entries' on every section",
+      "Ink stamps as the only emphasis device, mix-blend-multiply, no fill behind them",
+      "Machine lines: all data, dates, and fields set in mono tabular caps",
+      "Engraved uppercase display lettering for names and headings",
+      "Flat square document corners; ovals belong to stamps only"
+    ],
+    "rules": [
+      { "name": "The One Document Rule", "body": "The whole page is one booklet. Sections are pages with a running head and page number; a section that looks like a standalone card on a canvas has left the system.", "section": "colors" },
+      { "name": "The Ink-on-Paper Rule", "body": "Stamps and endorsement chips are pure ink on the page ground: mix-blend-multiply, no background fill, opacity 0.87–0.94 varying by ink. Ink never sits on a card.", "section": "colors" },
+      { "name": "The Machine-Line Rule", "body": "Data is always mono tabular caps — fields, periods, stamp text. Body prose is always the sans. A date set in the body face is a defect.", "section": "typography" },
+      { "name": "The No-Glow Rule", "body": "Nothing blurs, nothing gradients, nothing glows. If depth is needed, overlap an ink element over a paper one.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set every new section as a booklet page: running head, 2px rule, page number.",
+      "Do carry emphasis only through stamps and ink color; keep the ground and cards quiet.",
+      "Do keep motion to one settle per element on first view, transform-only, from a visible default.",
+      "Do use mono tabular caps for anything a machine would have printed."
+    ],
+    "donts": [
+      "Don't introduce gradients, glass, blur decoration, or shadows on resting elements.",
+      "Don't put a background fill behind stamps or endorsement chips.",
+      "Don't round document corners; ovals are for stamps only.",
+      "Don't add eyebrow labels above headings; the heading carries its own weight."
+    ]
+  }
+}

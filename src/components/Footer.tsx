@@ -1,78 +1,41 @@
-import Link from "next/link";
-
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-card py-8 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-[#6b1f2e] border-t-2 border-[#3d0f1a] text-[#f7f2e7]">
+      <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <h3 className="text-lg font-semibold mb-4">AbdulAlim Mohamed</h3>
-            <p className="text-muted-foreground">
-              Backend Developer with expertise in PHP, Laravel, and JavaScript.
+            <p className="engraved font-bold text-sm tracking-[0.16em]">
+              AbdulAlim Mohamed
+            </p>
+            <p className="machine-line uppercase text-[0.58rem] font-bold text-[#f7f2e7]/65 mt-2">
+              Senior Full-Stack Engineer · Cairo, Egypt
             </p>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Experience
-                </Link>
-              </li>
-              <li>
-                <Link href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Projects
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/abdulalim-mohamed-231506140/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/level7up"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:abdoleemos200@gmail.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Email
-                </a>
-              </li>
-            </ul>
-          </div>
+          <nav className="flex flex-wrap gap-5">
+            {[
+              { name: "About", href: "#about" },
+              { name: "Experience", href: "#experience" },
+              { name: "Projects", href: "#projects" },
+              { name: "LinkedIn", href: "https://www.linkedin.com/in/abdulalim-mohamed-231506140/" },
+              { name: "GitHub", href: "https://github.com/level7up" },
+            ].map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="machine-line uppercase text-[0.6rem] font-bold text-[#f7f2e7]/70 hover:text-[#f7f2e7] underline underline-offset-4 decoration-[#f7f2e7]/30 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border text-center text-muted-foreground">
-          <p>© {currentYear} AbdulAlim Mohamed. All rights reserved.</p>
-        </div>
+        <p className="mt-7 pt-5 border-t border-[#f7f2e7]/20 machine-line uppercase text-[0.58rem] font-bold text-[#f7f2e7]/55">
+          © {new Date().getFullYear()} AbdulAlim Mohamed
+        </p>
       </div>
     </footer>
   );

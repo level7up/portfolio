@@ -2,6 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useScrollTo } from "@/hooks/useScrollTo";
+import { Stamp } from "@/components/stamp";
+
+const fields = [
+  { label: "Surname", value: "Mohamed AbdulAlim" },
+  { label: "Given names", value: "AbdulAlim" },
+  { label: "Role", value: "Senior Full-Stack Engineer" },
+  { label: "Residence", value: "Cairo, Egypt" },
+];
 
 export function HeroSection() {
   const { scrollToSection } = useScrollTo();
@@ -12,164 +20,154 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12 relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="home" className="min-h-screen flex flex-col pt-24 pb-0 relative">
+      <div className="max-w-6xl mx-auto px-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] gap-10 lg:gap-14 items-center py-10">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="space-y-7"
         >
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold"
-          >
-            Hi, I&apos;m{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-              AbdulAlim
-            </span>
-          </motion.h1>
+          <h1 className="engraved font-bold leading-[1.02] text-[clamp(2.4rem,6vw,4.6rem)] tracking-[0.04em]">
+            AbdulAlim
+            <br />
+            Mohamed
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300"
-          >
-            Backend Developer with 4 years of experience building robust systems.
-          </motion.p>
+          <p className="text-lg md:text-xl text-[#5c5850] max-w-xl leading-relaxed">
+            Senior Full-Stack Engineer. I build multi-tenant Laravel systems
+            that serve{" "}
+            <strong className="text-[#6b1f2e] font-semibold">150+ businesses</strong>{" "}
+            in Saudi Arabia.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-4"
-          >
+          <dl className="border-y-2 border-[#1c1c18] divide-y divide-[#1c1c18]/15 max-w-lg">
+            {fields.map((field) => (
+              <div key={field.label} className="flex items-baseline gap-4 py-2.5">
+                <dt className="machine-line uppercase text-[0.6rem] font-bold text-[#5c5850] w-32 shrink-0">
+                  {field.label}
+                </dt>
+                <dd className="machine-line text-[0.78rem] font-semibold uppercase tracking-wider">
+                  {field.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="flex flex-wrap gap-4 pt-1">
             <a
-              href="#projects"
-              onClick={(e) => handleLinkClick(e, "projects")}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition-colors"
+              href="#experience"
+              onClick={(e) => handleLinkClick(e, "experience")}
+              className="engraved bg-[#6b1f2e] hover:bg-[#521522] text-[#f7f2e7] px-7 py-3.5 text-sm font-bold tracking-[0.14em] transition-colors border-2 border-[#3d0f1a]"
             >
-              View My Work
+              Open the record
             </a>
             <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, "contact")}
-              className="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              className="engraved border-2 border-[#1c1c18] px-7 py-3.5 text-sm font-bold tracking-[0.14em] hover:bg-[#1c1c18] hover:text-[#f4efe4] transition-colors"
             >
-              Contact Me
+              Contact
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex items-center gap-4 pt-4"
-          >
+          <div className="flex items-center gap-5 pt-1">
             <a
               href="https://www.linkedin.com/in/abdulalim-mohamed-231506140/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              aria-label="LinkedIn"
+              className="machine-line uppercase text-[0.65rem] font-bold text-[#5c5850] hover:text-[#6b1f2e] underline underline-offset-4 decoration-[#6b1f2e]/40 transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
+              LinkedIn
             </a>
             <a
               href="https://github.com/level7up"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              aria-label="GitHub"
+              className="machine-line uppercase text-[0.65rem] font-bold text-[#5c5850] hover:text-[#6b1f2e] underline underline-offset-4 decoration-[#6b1f2e]/40 transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
+              GitHub
             </a>
             <a
               href="mailto:abdoleemos200@gmail.com"
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              aria-label="Email"
+              className="machine-line uppercase text-[0.65rem] font-bold text-[#5c5850] hover:text-[#6b1f2e] underline underline-offset-4 decoration-[#6b1f2e]/40 transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+              Email
             </a>
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative aspect-square max-w-md mx-auto"
+          transition={{ duration: 0.55, delay: 0.15 }}
+          className="relative mx-auto w-full max-w-sm"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse" />
-          <div className="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full overflow-hidden aspect-square shadow-xl">
-            <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-blue-500">
-              AM
+          <div className="relative bg-[#fbf8f1] border-2 border-[#1c1c18] p-6 sheet-rules">
+            <div className="flex items-center justify-between border-b border-[#1c1c18]/25 pb-3 mb-5">
+              <span className="machine-line uppercase text-[0.58rem] font-bold text-[#5c5850]">
+                Visa pages
+              </span>
+              <span className="machine-line uppercase text-[0.58rem] font-bold text-[#5c5850]">
+                No. 041
+              </span>
+            </div>
+
+            <div className="space-y-5 min-h-48">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="machine-line uppercase text-[0.58rem] text-[#5c5850] font-bold">
+                    Issued to
+                  </p>
+                  <p className="engraved font-bold text-sm mt-1">AbdulAlim M.</p>
+                </div>
+                <p className="machine-line uppercase text-[0.58rem] text-[#5c5850] font-bold text-right">
+                  Type
+                  <br />
+                  <span className="text-[#1c1c18]">ENG</span>
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Stamp
+                  lines={["Saudi Arabia", "Gdawel ERP"]}
+                  caption="150+ businesses"
+                  ink="purple"
+                  rotate={-9}
+                  variant="oval"
+                />
+                <Stamp
+                  lines={["United Arab", "Emirates"]}
+                  caption="Claimizer"
+                  ink="green"
+                  rotate={7}
+                  variant="oval"
+                  delay={0.35}
+                />
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Stamp
+                  lines={["Qatar"]}
+                  caption="World Cup 22"
+                  ink="red"
+                  rotate={5}
+                  variant="oval"
+                  delay={0.6}
+                />
+                <Stamp
+                  lines={["Germany"]}
+                  caption="EasyCut"
+                  ink="burgundy"
+                  rotate={-6}
+                  variant="oval"
+                  delay={0.85}
+                />
+              </div>
             </div>
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <a
-          href="#about"
-          onClick={(e) => handleLinkClick(e, "about")}
-          className="flex flex-col items-center text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
-          aria-label="Scroll down"
-        >
-          <span className="text-sm mb-2">Scroll Down</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="animate-bounce"
-          >
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-          </svg>
-        </a>
-      </motion.div>
     </section>
   );
 }

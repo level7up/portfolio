@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling
+.devserver.log
+.playwright-mcp/
+.opencode/
+
+# impeccable runtime (durable artifacts are committed; these are not)
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/serve.log
+.impeccable/decision-payload.json
+.impeccable/config.local.json

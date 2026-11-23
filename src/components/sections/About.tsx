@@ -3,122 +3,106 @@
 import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { SectionHead } from "@/components/section-head";
 
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Animation variants for scroll reveal
-  const revealVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 50
-    },
+  const reveal: Variants = {
+    hidden: { opacity: 1, y: 18 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
+  const profile = [
+    { label: "Full name", value: "AbdulAlim Mohamed AbdulAlim" },
+    { label: "Email", value: "abdoleemos200@gmail.com" },
+    { label: "Phone", value: "+20 100 287 4060" },
+    { label: "Location", value: "Cairo, Egypt" },
+    { label: "Languages", value: "Arabic (native) · English (advanced) · German (beginner)" },
+    { label: "Education", value: "B.Sc. Computer Science — High Institute of CS & Information Systems, 2015–2019" },
+  ];
+
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-20 relative">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          initial={{ opacity: 1 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="space-y-12"
+          className="space-y-10"
         >
-          <div className="text-center space-y-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold"
-            >
-              About Me
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="h-1 w-20 bg-blue-500 mx-auto"
-            />
-          </div>
+          <SectionHead title="About" page="Page 02 · Data" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10">
             <motion.div
-              variants={revealVariants}
+              variants={reveal}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-semibold">
-                Backend Developer with <span className="text-blue-500">4 years</span> of experience
+              <h3 className="engraved font-bold text-lg md:text-xl leading-snug">
+                Senior Full-Stack Engineer with{" "}
+                <span className="text-[#6b1f2e]">5+ years</span> shipping
+                production software
               </h3>
 
-              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+              <div className="space-y-4 text-[#5c5850] leading-relaxed max-w-[65ch]">
                 <p>
-                  Driven Backend Developer with expertise in building and maintaining robust backend systems.
-                  Specialized in PHP, JavaScript, Laravel, Node.js, Vue.js, SQL, and NoSQL databases.
+                  I ship and run production software for clients in Egypt, the
+                  UAE, Saudi Arabia, Qatar and Germany. Specialist in
+                  PHP/Laravel backends: multi-tenant architecture, REST APIs,
+                  payment and e-invoicing integrations, and message-driven
+                  processing.
                 </p>
                 <p>
-                  I have a proven ability to collaborate effectively with cross-functional teams to deliver
-                  high-quality features on time. I&apos;m eager to contribute to a fast-paced environment and
-                  continuously learn new technologies.
+                  Core engineer on Gdawel, a multi-tenant ERP serving 150+
+                  businesses in Saudi Arabia, working across the full lifecycle
+                  from technical design to deployment and production support.
+                  Author of seven open-source Laravel and Node.js packages.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div>
-                  <h4 className="font-medium">Name:</h4>
-                  <p className="text-gray-600 dark:text-gray-300">AbdulAlim Mohamed</p>
-                </div>
-                <div>
-                  <h4 className="font-medium">Email:</h4>
-                  <p className="text-gray-600 dark:text-gray-300">abdoleemos200@gmail.com</p>
-                </div>
-                <div>
-                  <h4 className="font-medium">Location:</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Cairo, Egypt</p>
-                </div>
-                <div>
-                  <h4 className="font-medium">Languages:</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Arabic, English, German (Beginner)</p>
-                </div>
-              </div>
+              <a
+                href="#experience"
+                className="inline-block machine-line uppercase text-[0.65rem] font-bold text-[#6b1f2e] underline underline-offset-4 hover:text-[#521522] transition-colors"
+              >
+                → Read the entries
+              </a>
             </motion.div>
 
             <motion.div
-              variants={revealVariants}
+              variants={reveal}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.3 }}
-              className="relative"
+              transition={{ delay: 0.15 }}
+              className="bg-[#fbf8f1] border-2 border-[#1c1c18]"
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg blur opacity-20"></div>
-              <div className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-xl">
-                <h3 className="text-xl font-semibold mb-4">Education</h3>
-                <div className="space-y-4">
-                  <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <h4 className="font-medium">Computer Science</h4>
-                    <p className="text-gray-600 dark:text-gray-300">The High Institute of computer science and information systems</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">2015 - 2019</p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-semibold mb-4 mt-8">Current Position</h3>
-                <div className="border-l-2 border-blue-500 pl-4 py-2">
-                  <h4 className="font-medium">Backend Developer</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Hashstudio Solutions</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Sep 2021 - Present</p>
-                </div>
+              <div className="bg-[#6b1f2e] text-[#f7f2e7] px-5 py-2.5 flex items-center justify-between">
+                <span className="engraved text-[0.68rem] font-bold tracking-[0.16em]">
+                  Particulars
+                </span>
+                <span className="machine-line text-[0.58rem] font-bold">
+                  FORM P-11
+                </span>
               </div>
+              <dl className="divide-y divide-[#1c1c18]/12">
+                {profile.map((row) => (
+                  <div key={row.label} className="px-5 py-3">
+                    <dt className="machine-line uppercase text-[0.55rem] font-bold text-[#5c5850]">
+                      {row.label}
+                    </dt>
+                    <dd className="text-sm font-semibold mt-1 leading-snug">
+                      {row.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </motion.div>
           </div>
         </motion.div>

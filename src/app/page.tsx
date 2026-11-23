@@ -1,6 +1,3 @@
-import { AnimatedBackground } from "@/components/animated-background";
-import { BackgroundToggle } from "@/components/background-toggle";
-import { CustomCursor } from "@/components/custom-cursor";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/header";
 import { AboutSection } from "@/components/sections/About";
@@ -13,9 +10,6 @@ import { SkillsSection } from "@/components/sections/Skills";
 export default function Home() {
   return (
     <main>
-      <AnimatedBackground />
-      <CustomCursor />
-      {/* <BackgroundToggle /> */}
       <Header />
       <HeroSection />
       <AboutSection />
